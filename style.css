@@ -1,3 +1,32 @@
 H1 {
     text-align: center;
 }
+.menu {
+    width: 30%;
+    margin: 0 auto;
+}
+
+#books-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.containerBooks {
+    width: 500px;
+    height: 750px;
+    padding: 0.5rem;
+    display: inline;
+}
+img {
+    width: 300px;
+}
+
+.bookInfo {
+    width: auto;
+}
+@media only screen and (max-width: 768px){
+
+}

@@ -160,11 +160,13 @@ const loadBooks = (books) => {
     <div class="containerBooks"> 
     <h3>${book.title}</h3>
     <img src=${book.image}>
+    <div class="bookInfo">
     <p>Author: ${book.author}</p>
     <p>Year: ${book.year}</p>
     <p>Genre: ${book.genre}</p>
     <p>Rating: ${book.rating}</p>
     <p>Description: ${book.description}</p>
+    </div>
     </div>`;
   });
 }
@@ -234,9 +236,19 @@ const search = () => {
       foundBooks.push(book);
     }
   });
-  loadBooks(foundBooks);
-  //Empty the array so it doesn't add more object 
-  foundBooks.length = 0;
+  if(foundBooks.length === 0){
+    console.log("inne i if satsen" + foundBooks)
+    loadBooks(foundBooks);
+    booksContainer.innerHTML += `
+    <div class="containerBooks"> 
+    <p>Book not found</p>
+    </div>`;
+  }
+  else {
+    loadBooks(foundBooks);
+    //Empty the array so it doesn't add more object 
+    foundBooks.length = 0;
+  }
 }
 
 filterDropdown.addEventListener("change", filterBooks);
